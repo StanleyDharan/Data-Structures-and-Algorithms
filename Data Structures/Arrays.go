@@ -1,28 +1,23 @@
-package main
+package data_structures
 
 import (
-	"fmt"
 	"math/rand"
 	"time"
 )
 
-// Data sets to play with
-var randomList []int
-
 // Initalizing functions
-func initRandomArray(init *[]int) {
-	rand.NewSource(time.Now().UnixNano())
+func InitRandomArray(init []int, size int) []int {
+	rand.Seed(time.Now().UnixNano())
 	// Load 100 random numbers into array
-	for i := 0; i < 100; i++ {
-		*init = append(*init, rand.Intn(100))
+	for i := 0; i < size; i++ {
+		init = append(init, rand.Intn(size))
 	}
+	return init
 }
 
-// Sorting functions
-// Merge sort
-
-// Main function
-func main() {
-	initRandomArray(&randomList)
-	fmt.Print(randomList)
+func InitOrderedArray(init []int) []int {
+	for i := 0; i < 100; i++ {
+		init = append(init, i)
+	}
+	return init
 }
